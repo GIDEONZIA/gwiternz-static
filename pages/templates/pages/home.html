@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- ========== HERO SECTION ========== -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <div class="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent-secondary/5"></div>
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="text-sm font-mono text-accent-secondary tracking-widest uppercase mb-6 animate-fade-up">
+            {{ title }} · Project · Infrastructure · IT · Outsourcing · Advisory
+        </p>
+        
+        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 animate-fade-up">
+            Run, build and grow<br>
+            <span class="gradient-text">with confidence.</span>
+        </h1>
+        
+        <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto mb-12 animate-fade-up">
+            {{ description }}
+        </p>
+        
+        <div class="flex flex-wrap justify-center gap-6 mb-12 animate-fade-up">
+            {% for badge in trust_badges %}
+            <div class="flex items-center gap-2 text-sm text-gray-300">
+                <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {{ badge }}
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="flex flex-wrap justify-center gap-3 animate-fade-up">
+            {% for service in services %}
+            <span class="px-4 py-2 text-sm glass rounded-full text-gray-300">
+                ✦ {{ service.title }}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
+    </div>
+</section>
+
+<!-- ========== SERVICES SECTION ========== -->
+<section id="services" class="py-24 sm:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-fade-up">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                Five pillars, one trusted partner.
+            </h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                From the first project plan to long-term advisory, {{ title }} delivers the full spectrum of solutions a growing business needs to operate with confidence.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-stagger">
+            {% for service in services %}
+            <div class="group glass rounded-2xl p-8 hover:bg-background-elevated transition-all duration-300 hover:-translate-y-1">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="font-mono text-sm text-accent">{{ service.number }}</span>
+                    <div class="h-px flex-1 bg-white/10"></div>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-accent transition-colors">
+                    {{ service.title }}
+                </h3>
+                <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                    {{ service.description }}
+                </p>
+                <a href="#" class="inline-flex items-center gap-2 text-sm text-accent hover:text-accent-secondary transition-colors">
+                    Learn more
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="mt-16 text-center glass rounded-2xl p-8 sm:p-12 animate-fade-up">
+            <h3 class="text-2xl font-semibold mb-2">Not sure where to start?</h3>
+            <p class="text-gray-400 mb-6">Tell us your goals and we'll map the right mix of services for your business.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium bg-gradient-to-r from-accent to-accent-secondary rounded-full hover:opacity-90 transition-opacity">
+                Book a consult
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WHY US SECTION ========== -->
+<section id="why-us" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-fade-up">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                The partner growing businesses rely on.
+            </h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                We bring big-firm discipline to businesses of every size, accountable, experienced and close to the work.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-stagger">
+            {% for prop in value_props %}
+            <div class="group">
+                <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center mb-4 group-hover:bg-accent/20 transition-colors">
+                    <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-semibold mb-2">{{ prop.title }}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">{{ prop.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== PROCESS SECTION ========== -->
+<section id="process" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16 animate-fade-up">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                A clear path from conversation to outcome.
+            </h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                Every engagement follows a simple, transparent process, so you always know what happens next.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 animate-stagger">
+            {% for step in process_steps %}
+            <div class="relative">
+                {% if not forloop.last %}
+                <div class="hidden lg:block absolute top-8 left-full w-full h-px bg-gradient-to-r from-accent/50 to-transparent"></div>
+                {% endif %}
+                
+                <div class="w-16 h-16 rounded-full bg-accent/10 border border-accent/20 flex items-center justify-center mb-6">
+                    <span class="font-mono text-lg font-bold text-accent">{{ step.number }}</span>
+                </div>
+                <h3 class="text-xl font-semibold mb-3">{{ step.title }}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">{{ step.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== CLIENTS SECTION ========== -->
+<section class="py-16 border-t border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
+        <p class="text-center text-sm text-gray-500 uppercase tracking-widest">
+            Businesses our team has delivered for
+        </p>
+    </div>
+    
+    <div class="relative">
+        <div class="marquee-track">
+            {% for client in clients %}
+            <span class="text-2xl sm:text-3xl font-semibold text-white/20 hover:text-white/40 transition-colors px-8 whitespace-nowrap">
+                {{ client }}
+            </span>
+            {% endfor %}
+            {% for client in clients %}
+            <span class="text-2xl sm:text-3xl font-semibold text-white/20 hover:text-white/40 transition-colors px-8 whitespace-nowrap">
+                {{ client }}
+            </span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== CTA / CONTACT SECTION ========== -->
+<section id="contact" class="py-24 sm:py-32 border-t border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 animate-fade-up">
+            Let's move your business <em class="gradient-text">forward.</em>
+        </h2>
+        <p class="text-lg text-gray-400 mb-12 animate-fade-up">
+            Tell us what you're working on and we'll bring the right mix of expertise to get it done.
+        </p>
+        
+        <!-- Contact Info -->
+        <div class="glass rounded-2xl p-8 mb-12 animate-fade-up">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Name</p>
+                    <p class="text-white font-medium">Mr-Gwiternz</p>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Email</p>
+                    <a href="mailto:gwiternz@gmail.com" class="text-accent hover:text-accent-secondary transition-colors font-medium">gwiternz@gmail.com</a>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 mb-1">Phone</p>
+                    <a href="tel:+254758928268" class="text-accent hover:text-accent-secondary transition-colors font-medium">0758928268</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <form class="max-w-md mx-auto space-y-4 animate-fade-up" action="mailto:gwiternz@gmail.com" method="POST" enctype="text/plain">
+            <input 
+                type="text" 
+                name="name" 
+                placeholder="Your name" 
+                required
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+            >
+            <input 
+                type="email" 
+                name="email" 
+                placeholder="Your email" 
+                required
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+            >
+            <textarea 
+                name="message" 
+                rows="4" 
+                placeholder="Tell us about your project..." 
+                required
+                class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors resize-none"
+            ></textarea>
+            <button 
+                type="submit"
+                class="w-full px-8 py-3 text-sm font-medium bg-gradient-to-r from-accent to-accent-secondary rounded-full hover:opacity-90 transition-opacity"
+            >
+                Book a consult
+            </button>
+        </form>
+        
+        <!-- Newsletter -->
+        <div class="mt-16 pt-16 border-t border-white/5 animate-fade-up">
+            <h3 class="text-lg font-semibold mb-2">Stay in the loop</h3>
+            <p class="text-sm text-gray-400 mb-6">Occasional insights on technology, delivery and growth, straight to your inbox. No spam.</p>
+            <form class="flex gap-3 max-w-md mx-auto" action="mailto:gwiternz@gmail.com" method="POST" enctype="text/plain">
+                <input 
+                    type="email" 
+                    name="newsletter_email" 
+                    placeholder="Enter your email" 
+                    required
+                    class="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-accent transition-colors"
+                >
+                <button 
+                    type="submit"
+                    class="px-6 py-3 text-sm font-medium bg-white/10 border border-white/10 rounded-xl hover:bg-white/20 transition-colors"
+                >
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
