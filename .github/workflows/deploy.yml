@@ -29,7 +29,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install django django-distill whitenoise
+          pip install django django-distill
+
+      - name: Debug settings
+        run: |
+          echo "=== settings.py ==="
+          cat config/settings.py
+          echo "=== STATIC_ROOT ==="
+          python -c "import os; os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings'); import django; django.setup(); from django.conf import settings; print('STATIC_ROOT:', settings.STATIC_ROOT)"
 
       - name: Create static directory
         run: mkdir -p static
