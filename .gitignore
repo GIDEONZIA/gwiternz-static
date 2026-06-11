@@ -18,7 +18,7 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Static build output
+# Static build output (generated, not committed)
 /dist/
 
 # IDE
@@ -30,3 +30,6 @@ db.sqlite3-journal
 # OS
 .DS_Store
 Thumbs.db
+
+# But keep static folder structure
+!static/**/.gitkeep
