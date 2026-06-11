@@ -9,8 +9,6 @@ env/
 venv/
 ENV/
 *.egg-info/
-dist/
-build/
 
 # Django
 *.log
@@ -18,8 +16,8 @@ local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Static build output (generated, not committed)
-/dist/
+# Build output (generated, not committed)
+dist/
 
 # IDE
 .vscode/
@@ -31,5 +29,5 @@ db.sqlite3-journal
 .DS_Store
 Thumbs.db
 
-# But keep static folder structure
-!static/**/.gitkeep
+# Vercel
+.vercel/
